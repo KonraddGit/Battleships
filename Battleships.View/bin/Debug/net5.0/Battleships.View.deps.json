@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Battleships.View/1.0.0": {
+        "dependencies": {
+          "Battleships.Logic": "1.0.0"
+        },
+        "runtime": {
+          "Battleships.View.dll": {}
+        }
+      },
+      "Battleships.Core/1.0.0": {
+        "runtime": {
+          "Battleships.Core.dll": {}
+        }
+      },
+      "Battleships.Logic/1.0.0": {
+        "dependencies": {
+          "Battleships.Core": "1.0.0"
+        },
+        "runtime": {
+          "Battleships.Logic.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Battleships.View/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Battleships.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Battleships.Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
