@@ -18,29 +18,39 @@ namespace Battleships.Logic.BoardLogic
                 Y = rnd.Next(0, 10),
             };
 
-        public async Task PointTypeDraw(DrawType draw, Cell cell)
+        public Cell PointTypeDraw(DrawType draw, Cell cell)
         {
             switch (draw)
             {
                 case DrawType.Hit:
-                    ShipHit(cell);
-                    break;
+                    return ShipHit(cell);
 
                 case DrawType.Miss:
-                    ShipMiss(cell);
-                    break;
+                    return ShipMiss(cell);
 
                 case DrawType.ShipMark:
-                    ShipMark(cell);
-                    break;
+                    return ShipMark(cell);
             }
+
+            return cell;
         }
 
-        public void ShipMark(Cell cell)
-            => Board.GameBoard[cell.X, cell.Y] = 1;
-        public void ShipHit(Cell cell)
-            => Board.GameBoard[cell.X, cell.Y] = 2;
-        public void ShipMiss(Cell cell)
-            => Board.GameBoard[cell.X, cell.Y] = 3;
+        public Cell ShipMark(Cell cell)
+        {
+            Board.GameBoard[cell.X, cell.Y] = 1;
+            return cell;
+        }
+
+        public Cell ShipHit(Cell cell)
+        {
+            Board.GameBoard[cell.X, cell.Y] = 2;
+            return cell;
+        }
+
+        public Cell ShipMiss(Cell cell)
+        {
+            Board.GameBoard[cell.X, cell.Y] = 3;
+            return cell;
+        }
     }
 }

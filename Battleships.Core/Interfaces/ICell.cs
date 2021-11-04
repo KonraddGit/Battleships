@@ -5,7 +5,7 @@ namespace Battleships.Core.Interfaces
 {
     public interface ICell
     {
-        public Task PointTypeDraw(DrawType draw, Cell cell);
+        public Cell PointTypeDraw(DrawType draw, Cell cell);
         public Cell FirstPosition();
     }
 
