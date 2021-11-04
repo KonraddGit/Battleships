@@ -1,10 +1,11 @@
 ﻿using Battleships.Core.Models;
+using System.Threading.Tasks;
 
 namespace Battleships.Core.Interfaces
 {
     public interface ICell
     {
-        public void PointTypeDraw(DrawType draw, Cell cell);
+        public Task PointTypeDraw(DrawType draw, Cell cell);
         public Cell FirstPosition();
     }
 

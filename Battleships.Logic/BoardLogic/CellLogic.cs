@@ -1,10 +1,10 @@
 ﻿using Battleships.Core.Interfaces;
 using Battleships.Core.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace Battleships.Logic.BoardLogic
 {
-    //pierwsze wygeneruj statki jako 1 w tablicy zer, później dopiero wyświetl.
     //ten sam algorytm do generowania statkow i strzelania,
     //jakis wzorzec do konstruowania obiektów
     public class CellLogic : ICell
@@ -18,7 +18,7 @@ namespace Battleships.Logic.BoardLogic
                 Y = rnd.Next(0, 10),
             };
 
-        public void PointTypeDraw(DrawType draw, Cell cell)
+        public async Task PointTypeDraw(DrawType draw, Cell cell)
         {
             switch (draw)
             {
@@ -44,36 +44,3 @@ namespace Battleships.Logic.BoardLogic
             => Board.GameBoard[cell.X, cell.Y] = 3;
     }
 }
-
-//var first = FirstPosition();
-//table[first.X, first.Y] = 1;
-
-//public void DrawShips()
-//{
-//    var firstSpot = FirstPosition()
-
-
-//    foreach (var ship in Ships)
-//    {
-//        PlaceShipOnBoard(firstSpot, ship);
-//        FindNextSpot();
-//    }
-//}
-
-////metoda gdzie dostajesz punkt wygenerowany
-//public Cell DrawPointOnBoard(Cell cell)
-//    => board[cell.X, cell.Y] = 1;
-
-//public void DrawHitOrMissOnBoard(Cell cell)
-//{
-//    var res = ReturnHitOrMiss(cell)
-
-
-//    switch draw
-//    {
-//        draw.Hit = board[cell.X, cell.Y] = 2,
-//        draw.Miss = board[cell.X, cell.Y] = 3,
-//        draw.Ship = board[cell.X, cell.Y] = 1,
-//    }
-
-
