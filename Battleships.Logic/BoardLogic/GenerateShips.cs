@@ -31,14 +31,22 @@ namespace Battleships.Logic.BoardLogic
             if (cell == newPosition)
                 FindNextSpot(cell);
 
+            if (!SpaceBetweenShips(cell, newPosition))
+                FindNextSpot(cell);
+
+            return newPosition;
+        }
+
+        private bool SpaceBetweenShips(Cell cell, Cell newPosition)
+        {
             if (cell.X + 1 == newPosition.X
                 || cell.Y + 1 == newPosition.Y
                 || cell.X - 1 == newPosition.X
                 || cell.Y - 1 == newPosition.Y
                 )
-                FindNextSpot(cell);
-
-            return newPosition;
+                return false;
+            else
+                return true;
         }
 
         private void PlaceShipOnBoard(Cell firstPosition, IShip ship)
@@ -56,6 +64,9 @@ namespace Battleships.Logic.BoardLogic
                         break;
 
                     case 2:
+                        Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(first));
+                        var direction = rnd.Next(1, 4);
+
                         break;
 
                     case 3:
