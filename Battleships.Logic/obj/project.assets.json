@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Battleships.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Battleships.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Battleships.Core.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Battleships.Core/1.0.0": {
+      "type": "project",
+      "path": "../Battleships.Core/Battleships.Core.csproj",
+      "msbuildProject": "../Battleships.Core/Battleships.Core.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "Battleships.Core >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Konrad\\.nuget\\packages\\": {},
@@ -41,7 +60,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\Battleships.Core.csproj": {
+              "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\Battleships.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

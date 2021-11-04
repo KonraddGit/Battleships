@@ -14,7 +14,6 @@ C:\Users\Konrad\Desktop\Battleships\Battleships.Core\bin\Debug\net5.0\Battleship
 C:\Users\Konrad\Desktop\Battleships\Battleships.Core\bin\Debug\net5.0\Battleships.Core.dll
 C:\Users\Konrad\Desktop\Battleships\Battleships.Core\bin\Debug\net5.0\ref\Battleships.Core.dll
 C:\Users\Konrad\Desktop\Battleships\Battleships.Core\bin\Debug\net5.0\Battleships.Core.pdb
-C:\Users\Konrad\Desktop\Battleships\Battleships.Core\obj\Debug\net5.0\Battleships.Core.csproj.AssemblyReference.cache
 C:\Users\Konrad\Desktop\Battleships\Battleships.Core\obj\Debug\net5.0\Battleships.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Konrad\Desktop\Battleships\Battleships.Core\obj\Debug\net5.0\Battleships.Core.AssemblyInfoInputs.cache
 C:\Users\Konrad\Desktop\Battleships\Battleships.Core\obj\Debug\net5.0\Battleships.Core.AssemblyInfo.cs

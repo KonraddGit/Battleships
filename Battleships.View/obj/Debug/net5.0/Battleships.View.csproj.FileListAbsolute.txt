@@ -27,3 +27,16 @@ C:\Users\Konrad\Desktop\Battleships\Battleships.View\obj\Debug\net5.0\Battleship
 C:\Users\Konrad\Desktop\Battleships\Battleships.View\obj\Debug\net5.0\Battleships.View.dll
 C:\Users\Konrad\Desktop\Battleships\Battleships.View\obj\Debug\net5.0\ref\Battleships.View.dll
 C:\Users\Konrad\Desktop\Battleships\Battleships.View\obj\Debug\net5.0\Battleships.View.pdb
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.View.exe
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.View.deps.json
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.View.runtimeconfig.json
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.View.runtimeconfig.dev.json
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.View.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\ref\Battleships.View.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.View.pdb
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.Core.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.Logic.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.Logic.pdb
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\bin\Debug\net5.0\Battleships.Core.pdb
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\obj\Debug\net5.0\Battleships.View.csproj.CopyComplete
+C:\Users\Konrad\Desktop\Battleships\Battleships.View\obj\Debug\net5.0\Battleships.View.genruntimeconfig.cache

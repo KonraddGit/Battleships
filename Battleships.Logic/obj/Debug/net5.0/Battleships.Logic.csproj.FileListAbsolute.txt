@@ -1,0 +1,15 @@
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.csproj.AssemblyReference.cache
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.AssemblyInfoInputs.cache
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.AssemblyInfo.cs
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\bin\Debug\net5.0\Battleships.Logic.deps.json
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\bin\Debug\net5.0\Battleships.Logic.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\bin\Debug\net5.0\ref\Battleships.Logic.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\bin\Debug\net5.0\Battleships.Logic.pdb
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\bin\Debug\net5.0\Battleships.Core.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\bin\Debug\net5.0\Battleships.Core.pdb
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.csproj.CopyComplete
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\ref\Battleships.Logic.dll
+C:\Users\Konrad\Desktop\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.pdb
