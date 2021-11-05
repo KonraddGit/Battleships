@@ -27,4 +27,3 @@ C:\Users\kparchanski\source\repos\KonraddGit\Battleships\Battleships.Logic\obj\D
 C:\Users\kparchanski\source\repos\KonraddGit\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.dll
 C:\Users\kparchanski\source\repos\KonraddGit\Battleships\Battleships.Logic\obj\Debug\net5.0\ref\Battleships.Logic.dll
 C:\Users\kparchanski\source\repos\KonraddGit\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.pdb
-C:\Users\kparchanski\source\repos\KonraddGit\Battleships\Battleships.Logic\obj\Debug\net5.0\Battleships.Logic.csproj.CopyComplete
