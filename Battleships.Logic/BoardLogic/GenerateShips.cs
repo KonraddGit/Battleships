@@ -10,7 +10,7 @@ namespace Battleships.Logic.BoardLogic
 {
     public class GenerateShips : IShipGenerator
     {
-        List<Cell> PlacedShips = new List<Cell>();
+        public static List<Cell> PlacedShips = new List<Cell>();
         public ICell Cell { get; set; } = new CellLogic();
         private static readonly Random rnd = new();
 
@@ -60,26 +60,29 @@ namespace Battleships.Logic.BoardLogic
             Cell tmp = null;
 
             var direction = rnd.Next(0, 3);
-            switch (direction)
-            {
-                case 0:
-                    tmp = new Cell { X = cell.X - 1, Y = cell.Y };
-                    break;
-                case 1:
-                    tmp = new Cell { X = cell.X, Y = cell.Y + 1 };
-                    break;
-                case 2:
-                    tmp = new Cell { X = cell.X + 1, Y = cell.Y };
-                    break;
-                case 3:
-                    tmp = new Cell { X = cell.X, Y = cell.Y - 1 };
-                    break;
-                default:
-                    break;
-            }
 
             for (int i = 1; i < length; i++)
+            {
+                switch (direction)
+                {
+                    case 0:
+                        tmp = new Cell { X = cell.X - i, Y = cell.Y };
+                        break;
+                    case 1:
+                        tmp = new Cell { X = cell.X, Y = cell.Y + i };
+                        break;
+                    case 2:
+                        tmp = new Cell { X = cell.X + i, Y = cell.Y };
+                        break;
+                    case 3:
+                        tmp = new Cell { X = cell.X, Y = cell.Y - i };
+                        break;
+                    default:
+                        break;
+                }
+
                 PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, tmp));
+            }
         }
 
         private void PlaceShipOnBoard(IShip ship)

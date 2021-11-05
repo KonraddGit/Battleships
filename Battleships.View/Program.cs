@@ -18,6 +18,9 @@ namespace Battleships.View
 
             //for (int i = 0; i < runCount; i++)
                 simulation.Run();
+
+            //var winner = simulation.Run();
+            //Console.WriteLine($"Well done {winner.Name}! You Won!");
         }
     }
 }
