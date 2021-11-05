@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Battleships.Data\Battleships.Logic.csproj" />
     <ProjectReference Include="..\Battleships.Logic\Battleships.Logic.csproj" />
   </ItemGroup>
 

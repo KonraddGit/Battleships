@@ -13,59 +13,60 @@ namespace Battleships.Logic.BoardLogic
         public ICell Cell { get; set; } = new CellLogic();
         private static readonly Random rnd = new();
 
-        public async Task DrawShipsAsync(Cell firstPosition)
+        public async Task DrawShipsAsync()
         {
             foreach (var ship in Ship.Ships)
-            {
-                PlaceShipOnBoard(firstPosition, ship);
-            }
+                PlaceShipOnBoard(ship);
         }
 
-        private Cell FindNextSpot(Cell cell = null)
+        private Cell FindNextSpot(List<Cell> cell = null)
         {
             var newPosition = Cell.FirstPosition();
 
             if (cell == null)
                 return newPosition;
 
-            if (cell == newPosition)
-                FindNextSpot(cell);
+            foreach (var position in cell)
+                if (position == newPosition)
+                    FindNextSpot(cell);
 
-            if (!SpaceBetweenShips(cell, newPosition))
-                FindNextSpot(cell);
+            foreach (var position in cell)
+                if (!SpaceBetweenShips(position, newPosition))
+                    FindNextSpot(cell);
 
             return newPosition;
         }
 
         private bool SpaceBetweenShips(Cell cell, Cell newPosition)
         {
-            if (cell.X + 1 == newPosition.X
-                || cell.Y + 1 == newPosition.Y
-                || cell.X - 1 == newPosition.X
-                || cell.Y - 1 == newPosition.Y
+            if (newPosition.X == cell.X + 1 && newPosition.Y == cell.Y + 1
+                || (newPosition.X == cell.X && newPosition.Y == cell.Y + 1)
+                || (newPosition.X == cell.X && newPosition.Y == cell.Y - 1)
+                || (newPosition.X == cell.X + 1 && newPosition.Y == cell.Y)
+                || (newPosition.X == cell.X - 1 && newPosition.Y == cell.Y)
+                || (newPosition.X == cell.X + 1 && newPosition.Y == cell.Y - 1)
+                || (newPosition.X == cell.X - 1 && newPosition.Y == cell.Y - 1)
+                || (newPosition.X == cell.X - 1 && newPosition.Y == cell.Y + 1)
                 )
                 return false;
             else
                 return true;
         }
 
-        private void PlaceShipOnBoard(Cell firstPosition, IShip ship)
+        private void PlaceShipOnBoard(IShip ship)
         {
-            Cell first = null;
+            var placedShips = new List<Cell>();
 
             for (int i = 0; i < ship.ShipNumber; i++)
                 switch (ship.Size)
                 {
                     case 1:
-                        if (i < 1)
-                            first = Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot());
-                        else
-                            Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(first));
+                        placedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(placedShips)));
                         break;
 
                     case 2:
-                        Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(first));
-                        var direction = rnd.Next(1, 4);
+                        //Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(first));
+                        //var direction = rnd.Next(1, 4);
 
                         break;
 

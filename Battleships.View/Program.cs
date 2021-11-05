@@ -9,14 +9,14 @@ namespace Battleships.View
         {
             var simulation = new Simulation();
 
-            Console.WriteLine("Enter the number of simulations to be run");
+            //Console.WriteLine("Enter the number of simulations to be run");
 
-            var runCount = Convert.ToInt32(Console.ReadLine());
+            //var runCount = Convert.ToInt32(Console.ReadLine());
 
-            if (runCount < 1)
-                Environment.Exit(0);
+            //if (runCount < 1)
+            //    Environment.Exit(0);
 
-            for (int i = 0; i < runCount; i++)
+            //for (int i = 0; i < runCount; i++)
                 simulation.Run();
         }
     }

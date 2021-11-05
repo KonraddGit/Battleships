@@ -12,11 +12,10 @@ namespace Battleships.Logic
 
         public async Task Run()
         {
-            var firstPosition = Cell.FirstPosition();
             //pierwsza pozycja
             //generuj po kolei każdy statek na planszy
 
-            ShipGenerator.DrawShipsAsync(firstPosition);
+            ShipGenerator.DrawShipsAsync();
 
 
 
