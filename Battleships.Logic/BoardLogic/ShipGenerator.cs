@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Battleships.Logic.BoardLogic
 {
-    public class GenerateShips : IShipGenerator
+    public class ShipGenerator
     {
-
         public static ICell Cell;
         
         private static readonly Random rnd = new();
