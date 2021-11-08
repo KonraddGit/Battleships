@@ -8,6 +8,6 @@ namespace Battleships.Core.Models
         public string Name { get; set; }
         public int[,] GameBoard { get; set; } = new int[10, 10];
         public List<Cell> PlacedShips { get; set; } = new List<Cell>();
-        public int Points { get; set; }
+        public int HitPoints { get; set; }
     }
 }

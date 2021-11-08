@@ -9,8 +9,7 @@ namespace Battleships.Logic
 {
     public class Simulation
     {
-        public IShootingMechanism ShootingMechanism { get; set; } = new ShootingMechanism();
-        public IShipGenerator ShipGenerator { get; set; } = new GenerateShips();
+        public AutomaticMechanism AutomaticMechanism { get; set; } = new AutomaticMechanism();
 
         public static Player player1 = new Player { Id = 1, Name = "Johnny" };
         public static Player player2 = new Player { Id = 2, Name = "Obama" };
@@ -25,7 +24,7 @@ namespace Battleships.Logic
         {
             // Generate Player Ships
             foreach (var player in Players)
-                ShipGenerator.DrawShipsAsync(player);
+                AutomaticMechanism.DrawShipsAsync(player);
 
             Console.WriteLine("\n\n");
 
@@ -49,7 +48,7 @@ namespace Battleships.Logic
             while (true)
                 foreach (var player in Players)
                 {
-                    ShootingMechanism.Shot(player);
+                    AutomaticMechanism.ShotEnemy(player);
                     await Task.Delay(200);
                 }
         }
