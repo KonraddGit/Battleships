@@ -1,5 +1,6 @@
 ﻿using Battleships.Core.Interfaces;
 using Battleships.Core.Models;
+using Battleships.Logic.Helpers;
 using System;
 using System.Threading.Tasks;
 
@@ -26,20 +27,33 @@ namespace Battleships.Logic.BoardLogic
 
             Cell = new CellLogic(player);
 
+            var cell = FirstShoot(player);
+            HitOrMiss(cell, player);
         }
 
-        private Cell FindSpot(Player player)
+        private Cell FirstShoot(Player player)
+            => Cell.FirstPosition();
+
+        private Cell HitOrMiss(Cell cell, Player player)
         {
-            var cell = Cell.FirstPosition();
-
-            if (player.GameBoard[cell.X, cell.Y]
-)
-            {
-
-            }
-
+            if (player.GameBoard[cell.X, cell.Y] == 1)
+                return Hit(cell, player);
+            else
+                return Miss(cell);
         }
-      
 
+
+        private Cell Hit(Cell cell, Player player)
+        {
+            player.HitPoints++;
+            Console.WriteLine($"{player.Name} GOT HIT!");
+
+            //jesli dookola sa 0 to true zwraca czyli byl pojedynczy statek, czyli zatopienie
+            if (Cell.PointTypeDraw(DrawType.Hit, cell).CheckForFreeSpace(player))
+                Console.WriteLine($"{player.Name} GOT SINKING SHIP!");
+        }
+
+        private Cell Miss(Cell cell)
+            => Cell.PointTypeDraw(DrawType.Miss, cell);
     }
 }

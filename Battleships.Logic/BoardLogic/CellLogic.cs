@@ -51,13 +51,13 @@ namespace Battleships.Logic.BoardLogic
             return cell;
         }
 
-        public Cell ShipHit(Cell cell)
+        public Cell ShipMiss(Cell cell)
         {
             Player.GameBoard[cell.X, cell.Y] = 2;
             return cell;
         }
 
-        public Cell ShipMiss(Cell cell)
+        public Cell ShipHit(Cell cell)
         {
             Player.GameBoard[cell.X, cell.Y] = 3;
             return cell;
