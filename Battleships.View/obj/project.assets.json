@@ -35,8 +35,8 @@
     },
     "Battleships.Logic/1.0.0": {
       "type": "project",
-      "path": "../Battleships.Data/Battleships.Logic.csproj",
-      "msbuildProject": "../Battleships.Data/Battleships.Logic.csproj"
+      "path": "../Battleships.Logic/Battleships.Logic.csproj",
+      "msbuildProject": "../Battleships.Logic/Battleships.Logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -79,8 +79,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\Battleships.Logic.csproj": {
-              "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\Battleships.Logic.csproj"
+            "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj": {
+              "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj"
             }
           }
         }

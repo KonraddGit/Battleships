@@ -64,14 +64,14 @@
         }
       }
     },
-    "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\Battleships.Logic.csproj": {
+    "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\Battleships.Logic.csproj",
+        "projectUniqueName": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj",
         "projectName": "Battleships.Logic",
-        "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\Battleships.Logic.csproj",
+        "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj",
         "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\obj\\",
+        "outputPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -158,8 +158,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\Battleships.Logic.csproj": {
-                "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Data\\Battleships.Logic.csproj"
+              "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj": {
+                "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj"
               }
             }
           }
