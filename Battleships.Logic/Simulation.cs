@@ -9,7 +9,7 @@ namespace Battleships.Logic
 {
     public class Simulation
     {
-        public AutomaticMechanism AutomaticMechanism { get; set; } = new AutomaticMechanism();
+        public ShipGenerator AutomaticMechanism { get; set; } = new ShipGenerator();
 
         public static Player player1 = new Player { Id = 1, Name = "Johnny" };
         public static Player player2 = new Player { Id = 2, Name = "Obama" };
@@ -39,6 +39,7 @@ namespace Battleships.Logic
                 }
                 else
                 {
+                    Console.BufferHeight = 400;
                     Console.WriteLine(player.Name);
                     Board.DrawBoard(player);
                 }

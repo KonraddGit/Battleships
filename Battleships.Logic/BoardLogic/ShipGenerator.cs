@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Battleships.Logic.BoardLogic
 {
-    public class AutomaticMechanism
+    public class ShipGenerator
     {
         public static ICell Cell;
         
@@ -121,12 +121,6 @@ namespace Battleships.Logic.BoardLogic
 
             //DisplayShipPositions(player.PlacedShips);
         }
-
-        public void ShotEnemy(Player player)
-        {
-            FindNextSpot(player);
-        }
-
 
         private static void DisplayShipPositions(List<Cell> placedShips)
         {

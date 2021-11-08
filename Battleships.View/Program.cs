@@ -6,7 +6,8 @@ namespace Battleships.View
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
+
             var simulation = new Simulation();
 
             //Console.WriteLine("Enter the number of simulations to be run");
