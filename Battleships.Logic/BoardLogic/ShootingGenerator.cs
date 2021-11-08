@@ -48,12 +48,50 @@ namespace Battleships.Logic.BoardLogic
             player.HitPoints++;
             Console.WriteLine($"{player.Name} GOT HIT!");
 
+            //trzeba dodac, zeby narysowalo wszedzie 2 dookoloa jak zatopiony
             //jesli dookola sa 0 to true zwraca czyli byl pojedynczy statek, czyli zatopienie
             if (Cell.PointTypeDraw(DrawType.Hit, cell).CheckForFreeSpace(player))
+            {
                 Console.WriteLine($"{player.Name} GOT SINKING SHIP!");
+                var tmp = FirstShoot(player);
+                HitOrMiss(tmp, player);
+            }
+            else
+                Direction();
         }
 
         private Cell Miss(Cell cell)
             => Cell.PointTypeDraw(DrawType.Miss, cell);
+
+        private void Direction()
+        {
+            var cell = player.PlacedShips.Last();
+            Cell tmp = null;
+
+            var direction = Extensions.RandomDirection();
+
+            for (int i = 1; i < length; i++)
+            {
+                switch (direction)
+                {
+                    case 0:
+                        tmp = new Cell { X = cell.X - i, Y = cell.Y };
+                        break;
+                    case 1:
+                        tmp = new Cell { X = cell.X, Y = cell.Y + i };
+                        break;
+                    case 2:
+                        tmp = new Cell { X = cell.X + i, Y = cell.Y };
+                        break;
+                    case 3:
+                        tmp = new Cell { X = cell.X, Y = cell.Y - i };
+                        break;
+                    default:
+                        break;
+                }
+
+                player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, tmp));
+            }
+        }
     }
 }

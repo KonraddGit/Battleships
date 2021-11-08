@@ -1,5 +1,6 @@
 ﻿using Battleships.Core.Interfaces;
 using Battleships.Core.Models;
+using Battleships.Logic.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,6 @@ namespace Battleships.Logic.BoardLogic
     public class ShipGenerator
     {
         public static ICell Cell;
-        
-        private static readonly Random rnd = new();
 
         public async Task DrawShipsAsync(Player player)
         {
@@ -33,26 +32,10 @@ namespace Battleships.Logic.BoardLogic
                     FindNextSpot(player);
 
             foreach (var position in player.PlacedShips)
-                if (!SpaceBetweenShips(position, newPosition))
+                if (!Extensions.CheckForFreeSpace(position, newPosition))
                     FindNextSpot(player);
 
             return newPosition;
-        }
-
-        private bool SpaceBetweenShips(Cell cell, Cell newPosition)
-        {
-            if (newPosition.X == cell.X + 1 && newPosition.Y == cell.Y + 1
-                || (newPosition.X == cell.X && newPosition.Y == cell.Y + 1)
-                || (newPosition.X == cell.X && newPosition.Y == cell.Y - 1)
-                || (newPosition.X == cell.X + 1 && newPosition.Y == cell.Y)
-                || (newPosition.X == cell.X - 1 && newPosition.Y == cell.Y)
-                || (newPosition.X == cell.X + 1 && newPosition.Y == cell.Y - 1)
-                || (newPosition.X == cell.X - 1 && newPosition.Y == cell.Y - 1)
-                || (newPosition.X == cell.X - 1 && newPosition.Y == cell.Y + 1)
-                )
-                return false;
-            else
-                return true;
         }
 
         private void BuildShipWithGivenLength(Player player, int length)
@@ -60,7 +43,7 @@ namespace Battleships.Logic.BoardLogic
             var cell = player.PlacedShips.Last();
             Cell tmp = null;
 
-            var direction = rnd.Next(0, 3);
+            var direction = Extensions.RandomDirection();
 
             for (int i = 1; i < length; i++)
             {
