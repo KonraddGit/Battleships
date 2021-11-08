@@ -1,18 +1,20 @@
-﻿using System;
+﻿using Battleships.Core.Models;
+using System;
 
 namespace Battleships.Logic.BoardLogic
 {
     public static class Board
     {
-        public static int[,] GameBoard = new int[10, 10];
-
-        public static void DrawBoard()
+        public static void DrawBoard(Player player)
         {
-            for (int i = 0; i < GameBoard.GetLength(0); i++)
+            if (player is null)
+                throw new ArgumentNullException(nameof(player));
+
+            for (int i = 0; i < player.GameBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < GameBoard.GetLength(1); j++)
+                for (int j = 0; j < player.GameBoard.GetLength(1); j++)
                 {
-                    Console.Write($" {GameBoard[i, j]} ");
+                    Console.Write($" {player.GameBoard[i, j]} ");
                 }
 
                 Console.WriteLine("\n");

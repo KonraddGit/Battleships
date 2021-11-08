@@ -1,15 +1,22 @@
 ﻿using Battleships.Core.Interfaces;
 using Battleships.Core.Models;
 using System;
-using System.Threading.Tasks;
 
 namespace Battleships.Logic.BoardLogic
 {
-    //ten sam algorytm do generowania statkow i strzelania,
-    //jakis wzorzec do konstruowania obiektów
     public class CellLogic : ICell
     {
         private static readonly Random rnd = new();
+
+        public Player Player { get; }
+
+        public CellLogic(Player player)
+        {
+            if (player is null)
+                throw new ArgumentNullException(nameof(player));
+            
+            Player = player;
+        }
 
         public Cell FirstPosition()
             => new Cell
@@ -30,6 +37,9 @@ namespace Battleships.Logic.BoardLogic
 
                 case DrawType.ShipMark:
                     return ShipMark(cell);
+
+                default:
+                    break;
             }
 
             return cell;
@@ -37,19 +47,19 @@ namespace Battleships.Logic.BoardLogic
 
         public Cell ShipMark(Cell cell)
         {
-            Board.GameBoard[cell.X, cell.Y] = 1;
+            Player.GameBoard[cell.X, cell.Y] = 1;
             return cell;
         }
 
         public Cell ShipHit(Cell cell)
         {
-            Board.GameBoard[cell.X, cell.Y] = 2;
+            Player.GameBoard[cell.X, cell.Y] = 2;
             return cell;
         }
 
         public Cell ShipMiss(Cell cell)
         {
-            Board.GameBoard[cell.X, cell.Y] = 3;
+            Player.GameBoard[cell.X, cell.Y] = 3;
             return cell;
         }
     }
