@@ -1,14 +1,18 @@
 ﻿using Battleships.Core.Interfaces;
+using Battleships.Core.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Battleships.Logic.BoardLogic
 {
     public class ShootingMechanism : IShootingMechanism
     {
+        public static ICell Cell;
+        private static readonly Random rnd = new();
+
+        public ShootingMechanism(Player player) 
+            => Cell = new CellLogic(player);
+
+
         public void ShotMechanism()
         {
             throw new NotImplementedException();

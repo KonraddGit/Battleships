@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Battleships.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace Battleships.Core.Interfaces
         void ShottingPatter();
         void ShotMechanism();
         void ShotOrMiss();
+        void Shot(Player player);
     }
 }

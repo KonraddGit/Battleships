@@ -10,7 +10,6 @@ namespace Battleships.Logic
     public class Simulation
     {
         public IShootingMechanism ShootingMechanism { get; set; } = new ShootingMechanism();
-        //public ICell Cell { get; set; } = new CellLogic();
         public IShipGenerator ShipGenerator { get; set; } = new GenerateShips();
 
         public static Player player1 = new Player { Id = 1, Name = "Johnny" };
@@ -24,35 +23,35 @@ namespace Battleships.Logic
 
         public async Task Run()
         {
-            //generuj po kolei każdy statek na planszy gracza
-
+            // Generate Player Ships
             foreach (var player in Players)
                 ShipGenerator.DrawShipsAsync(player);
-            Console.WriteLine("\n\n");
-            //Dwie plansze, player1, player2
 
+            Console.WriteLine("\n\n");
+
+            // Draw each players board
             foreach (var player in Players)
             {
                 if (player == player1)
                 {
-                    Console.WriteLine("Player1");
+                    Console.WriteLine(player.Name);
                     Board.DrawBoard(player);
                     Console.WriteLine("\n\n\n");
                 }
                 else
                 {
-                    Console.WriteLine("Player2");
+                    Console.WriteLine(player.Name);
                     Board.DrawBoard(player);
                 }
             }
-            //while (WinCondition)
-            //{
-            //    for (int i = 0; i < 2; i++)
-            //        ShootingMechanism.ShotMechanism(Players.);
-            //    Player2Shot();
-            //}
 
-            //return winner;
+            // Shooting until someone dies
+            while (true)
+                foreach (var player in Players)
+                {
+                    ShootingMechanism.Shot(player);
+                    await Task.Delay(200);
+                }
         }
     }
 }
