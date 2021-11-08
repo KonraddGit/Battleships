@@ -3,37 +3,39 @@ using Battleships.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Battleships.Logic.BoardLogic
 {
     public class GenerateShips : IShipGenerator
     {
-        public static List<Cell> PlacedShips = new List<Cell>();
-        public ICell Cell { get; set; } = new CellLogic();
+
+        public static ICell Cell;
+        
         private static readonly Random rnd = new();
 
-        public async Task DrawShipsAsync()
+        public async Task DrawShipsAsync(Player player)
         {
+            Cell = new CellLogic(player);
+
             foreach (var ship in Ship.Ships)
-                PlaceShipOnBoard(ship);
+                PlaceShipOnBoard(player, ship);
         }
 
-        private Cell FindNextSpot()
+        private Cell FindNextSpot(Player player)
         {
             var newPosition = Cell.FirstPosition();
 
-            if (PlacedShips == null)
+            if (player.PlacedShips == null)
                 return newPosition;
 
-            foreach (var position in PlacedShips)
+            foreach (var position in player.PlacedShips)
                 if (position == newPosition)
-                    FindNextSpot();
+                    FindNextSpot(player);
 
-            foreach (var position in PlacedShips)
+            foreach (var position in player.PlacedShips)
                 if (!SpaceBetweenShips(position, newPosition))
-                    FindNextSpot();
+                    FindNextSpot(player);
 
             return newPosition;
         }
@@ -54,9 +56,9 @@ namespace Battleships.Logic.BoardLogic
                 return true;
         }
 
-        private void BuildShipWithGivenLength(int length)
+        private void BuildShipWithGivenLength(Player player, int length)
         {
-            var cell = PlacedShips.Last();
+            var cell = player.PlacedShips.Last();
             Cell tmp = null;
 
             var direction = rnd.Next(0, 3);
@@ -81,44 +83,44 @@ namespace Battleships.Logic.BoardLogic
                         break;
                 }
 
-                PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, tmp));
+                player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, tmp));
             }
         }
 
-        private void PlaceShipOnBoard(IShip ship)
+        private void PlaceShipOnBoard(Player player, IShip ship)
         {
             for (int i = 0; i < ship.ShipNumber; i++)
                 switch (ship.Size)
                 {
                     case 1:
-                        PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot()));
+                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
                         break;
 
                     case 2:
-                        PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot()));
-                        BuildShipWithGivenLength(ship.Size);
+                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
+                        BuildShipWithGivenLength(player, ship.Size);
                         break;
 
                     case 3:
-                        PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot()));
-                        BuildShipWithGivenLength(ship.Size);
+                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
+                        BuildShipWithGivenLength(player, ship.Size);
                         break;
 
                     case 4:
-                        PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot()));
-                        BuildShipWithGivenLength(ship.Size);
+                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
+                        BuildShipWithGivenLength(player, ship.Size);
                         break;
 
                     case 5:
-                        PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot()));
-                        BuildShipWithGivenLength(ship.Size);
+                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
+                        BuildShipWithGivenLength(player, ship.Size);
                         break;
 
                     default:
                         break;
                 }
 
-            DisplayShipPositions(PlacedShips);
+            //DisplayShipPositions(player.PlacedShips);
         }
 
         private static void DisplayShipPositions(List<Cell> placedShips)

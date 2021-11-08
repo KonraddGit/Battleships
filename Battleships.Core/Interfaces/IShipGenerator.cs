@@ -5,6 +5,6 @@ namespace Battleships.Core.Interfaces
 {
     public interface IShipGenerator
     {
-        public Task DrawShipsAsync();
+        public Task DrawShipsAsync(Player player);
     }
 }
