@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Qp7GXJDSahx4B4xrrubncjUDtf5T669diDehhF8H15Kd/eyKr24A/Yf8Ra/8EOKUgC936y29bCWt7y+GDgmd4Q==",
+  "dgSpecHash": "Zid4ScqM8ST2LcVJ6OYMvZyRDqTQP4gKW70ocj6PLgJqxAXwsvfRHU1Y7krQOyxczKF+7wDzxIn/rOd6PzpceA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.View\\Battleships.View.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.View\\Battleships.View.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kparchanski\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
   "logs": []
 }

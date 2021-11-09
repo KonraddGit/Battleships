@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.View\\Battleships.View.csproj": {}
+    "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.View\\Battleships.View.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\Battleships.Core.csproj": {
+    "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Core\\Battleships.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\Battleships.Core.csproj",
+        "projectUniqueName": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Core\\Battleships.Core.csproj",
         "projectName": "Battleships.Core",
-        "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\Battleships.Core.csproj",
-        "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\obj\\",
+        "projectPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Core\\Battleships.Core.csproj",
+        "packagesPath": "C:\\Users\\kparchanski\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Konrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kparchanski\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -60,25 +61,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj": {
+    "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj",
+        "projectUniqueName": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj",
         "projectName": "Battleships.Logic",
-        "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj",
-        "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\obj\\",
+        "projectPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj",
+        "packagesPath": "C:\\Users\\kparchanski\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Konrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kparchanski\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -94,8 +96,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\Battleships.Core.csproj": {
-                "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Core\\Battleships.Core.csproj"
+              "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Core\\Battleships.Core.csproj": {
+                "projectPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Core\\Battleships.Core.csproj"
               }
             }
           }
@@ -124,25 +126,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.View\\Battleships.View.csproj": {
+    "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.View\\Battleships.View.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.View\\Battleships.View.csproj",
+        "projectUniqueName": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.View\\Battleships.View.csproj",
         "projectName": "Battleships.View",
-        "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.View\\Battleships.View.csproj",
-        "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.View\\obj\\",
+        "projectPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.View\\Battleships.View.csproj",
+        "packagesPath": "C:\\Users\\kparchanski\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.View\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Konrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kparchanski\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -158,8 +161,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj": {
-                "projectPath": "C:\\Users\\Konrad\\Desktop\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj"
+              "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj": {
+                "projectPath": "C:\\Users\\kparchanski\\source\\repos\\KonraddGit\\Battleships\\Battleships.Logic\\Battleships.Logic.csproj"
               }
             }
           }
@@ -183,12 +186,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.12, 5.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

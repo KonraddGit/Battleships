@@ -2,18 +2,15 @@
 using Battleships.Core.Models;
 using Battleships.Logic.Helpers;
 using System;
-using System.Threading.Tasks;
 
 namespace Battleships.Logic.BoardLogic
 {
-    //wylosuj pozycje
-    //sprawdz czy jest 1 czy 0
     //jesli zero to pudlo i zaznacz miss czyli 2
     //jesli trafiłeś to zaznacz trafienie, sprawdż czy wszystkie pola są zerami dookoła, jeśli nie to niezatopiony i możesz strzelać w losowym kierunku dalej
     //sprawdz czy kierunek wybrany idzie w ściane
     //powtarzaj az do zatopienia
     //przy pudle następny gracz, przy trafieniu kontynuacja
-    //18 punktów = 18 trafień to koniec meczu i wygrana
+    //18 punktów = 18 trafień to koniec meczu i wygrana pod warunkiem, że tyle statków istnieje
 
 
     public class ShootingGenerator
@@ -27,41 +24,53 @@ namespace Battleships.Logic.BoardLogic
 
             Cell = new CellLogic(player);
 
-            var cell = FirstShoot(player);
-            HitOrMiss(cell, player);
+
+            ShotLogic(player);
         }
 
-        private Cell FirstShoot(Player player)
-            => Cell.FirstPosition();
-
-        private Cell HitOrMiss(Cell cell, Player player)
+        private Cell ShotLogic(Player player)
         {
-            if (player.GameBoard[cell.X, cell.Y] == 1)
-                return Hit(cell, player);
-            else
-                return Miss(cell);
-        }
+            var cell = FirstShoot();
+            
+            //0 - empty,
+            //1 - ship,
+            //2 - miss or space around ship,
+            //3 - already hit
+            var type = ShotType(cell, player);
 
+            return type switch
+            {
+                0 => Miss(cell),
+                1 => Hit(cell, player),
+                2 or 3 => ShotLogic(player),
+                _ => throw new NotImplementedException(""),
+            };
+        }
 
         private Cell Hit(Cell cell, Player player)
         {
             player.HitPoints++;
             Console.WriteLine($"{player.Name} GOT HIT!");
 
-            //trzeba dodac, zeby narysowalo wszedzie 2 dookoloa jak zatopiony
+            //trzeba dodac, zeby narysowalo wszedzie 2 dookola jak zatopiony
             //jesli dookola sa 0 to true zwraca czyli byl pojedynczy statek, czyli zatopienie
             if (Cell.PointTypeDraw(DrawType.Hit, cell).CheckForFreeSpace(player))
             {
+                MarkSpaceAroundSinkedShip(cell, player);
                 Console.WriteLine($"{player.Name} GOT SINKING SHIP!");
-                var tmp = FirstShoot(player);
-                HitOrMiss(tmp, player);
+                ShotLogic(player);
             }
             else
                 Direction();
         }
 
-        private Cell Miss(Cell cell)
-            => Cell.PointTypeDraw(DrawType.Miss, cell);
+        private bool MarkSpaceAroundSinkedShip(Cell cell, Player player)
+        {
+            if (!Cell.PointTypeDraw(DrawType.Miss, cell).CheckForFreeSpace(player))
+            {
+
+            }
+        }
 
         private void Direction()
         {
@@ -93,5 +102,24 @@ namespace Battleships.Logic.BoardLogic
                 player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, tmp));
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+        private Cell Miss(Cell cell)
+            => Cell.PointTypeDraw(DrawType.Miss, cell);
+
+        private Cell FirstShoot()
+            => Cell.FirstPosition();
+
+        private int ShotType(Cell cell, Player player)
+            => player.GameBoard[cell.X, cell.Y];
     }
 }
