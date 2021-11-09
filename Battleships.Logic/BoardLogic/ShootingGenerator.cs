@@ -24,14 +24,14 @@ namespace Battleships.Logic.BoardLogic
 
             Cell = new CellLogic(player);
 
-
             ShotLogic(player);
         }
 
-        private Cell ShotLogic(Player player)
+        private Cell ShotLogic(Player player, Cell cell = null)
         {
-            var cell = FirstShoot();
-            
+            if (cell == null)
+                cell = FirstShoot();
+
             //0 - empty,
             //1 - ship,
             //2 - miss or space around ship,
@@ -61,7 +61,10 @@ namespace Battleships.Logic.BoardLogic
                 ShotLogic(player);
             }
             else
-                Direction();
+            {
+                var tmp = Direction(cell);
+                ShotLogic(player, tmp);
+            }
         }
 
         private bool MarkSpaceAroundSinkedShip(Cell cell, Player player)
@@ -72,35 +75,18 @@ namespace Battleships.Logic.BoardLogic
             }
         }
 
-        private void Direction()
+        private Cell Direction(Cell cell)
         {
-            var cell = player.PlacedShips.Last();
-            Cell tmp = null;
-
             var direction = Extensions.RandomDirection();
 
-            for (int i = 1; i < length; i++)
+            return direction switch
             {
-                switch (direction)
-                {
-                    case 0:
-                        tmp = new Cell { X = cell.X - i, Y = cell.Y };
-                        break;
-                    case 1:
-                        tmp = new Cell { X = cell.X, Y = cell.Y + i };
-                        break;
-                    case 2:
-                        tmp = new Cell { X = cell.X + i, Y = cell.Y };
-                        break;
-                    case 3:
-                        tmp = new Cell { X = cell.X, Y = cell.Y - i };
-                        break;
-                    default:
-                        break;
-                }
-
-                player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, tmp));
-            }
+                0 => new Cell { X = cell.X - 1, Y = cell.Y },
+                1 => new Cell { X = cell.X, Y = cell.Y + 1 },
+                2 => new Cell { X = cell.X + 1, Y = cell.Y },
+                3 => new Cell { X = cell.X, Y = cell.Y - 1 },
+                _ => throw new NotImplementedException()
+            };
         }
 
 
