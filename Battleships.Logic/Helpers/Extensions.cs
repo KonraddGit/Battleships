@@ -1,9 +1,6 @@
-﻿using Battleships.Core.Interfaces;
-using Battleships.Core.Models;
-using Battleships.Logic.BoardLogic;
+﻿using Battleships.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Battleships.Logic.Helpers
 {
@@ -40,11 +37,18 @@ namespace Battleships.Logic.Helpers
 
         public static bool CheckForFreeSpace(this Cell cell, Player player)
         {
-            foreach (var item in IterateAroundCell(cell))
-                if (player.GameBoard[item.X, item.Y] == 0)
-                    continue;
-                else
-                    return false;
+            try
+            {
+                foreach (var item in IterateAroundCell(cell))
+                    if (player.GameBoard[item.X, item.Y] == 0)
+                        continue;
+                    else
+                        return false;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Bug");
+            }
 
             return true;
         }

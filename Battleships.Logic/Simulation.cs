@@ -31,7 +31,7 @@ namespace Battleships.Logic
                     DrawBoard();
                     ShootingGenerator.ShotEnemy(player);
                     Console.Clear();
-                    Task.Delay(1000);
+                    Task.Delay(3000);
                 }
         }
 
