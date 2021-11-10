@@ -26,13 +26,15 @@ namespace Battleships.Logic
                 ShipGenerator.DrawShipsAsync(player);
 
             while (true)
+            {
+                Task.Delay(3000);
                 foreach (var player in Players)
                 {
                     DrawBoard();
                     ShootingGenerator.ShotEnemy(player);
                     Console.Clear();
-                    Task.Delay(3000);
                 }
+            }
         }
 
         private void DrawBoard()

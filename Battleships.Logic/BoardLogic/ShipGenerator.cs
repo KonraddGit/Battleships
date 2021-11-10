@@ -77,22 +77,9 @@ namespace Battleships.Logic.BoardLogic
                     case 1:
                         player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
                         break;
-
                     case 2:
-                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
-                        BuildShipWithGivenLength(player, ship.Size);
-                        break;
-
                     case 3:
-                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
-                        BuildShipWithGivenLength(player, ship.Size);
-                        break;
-
                     case 4:
-                        player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
-                        BuildShipWithGivenLength(player, ship.Size);
-                        break;
-
                     case 5:
                         player.PlacedShips.Add(Cell.PointTypeDraw(DrawType.ShipMark, FindNextSpot(player)));
                         BuildShipWithGivenLength(player, ship.Size);

@@ -1,6 +1,9 @@
-﻿using Battleships.Core.Models;
+﻿using Battleships.Core.Interfaces;
+using Battleships.Core.Models;
+using Battleships.Logic.BoardLogic;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Battleships.Logic.Helpers
 {
@@ -23,7 +26,7 @@ namespace Battleships.Logic.Helpers
         }
 
         public static List<Cell> IterateAroundCell(Cell cell)
-            => new List<Cell>()
+            => new()
             {
                 new Cell { X = cell.X + 1, Y = cell.Y + 1},
                 new Cell { X = cell.X, Y = cell.Y + 1},
