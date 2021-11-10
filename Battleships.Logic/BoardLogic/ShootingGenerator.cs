@@ -2,17 +2,10 @@
 using Battleships.Core.Models;
 using Battleships.Logic.Helpers;
 using System;
+using System.Collections.Generic;
 
 namespace Battleships.Logic.BoardLogic
 {
-    //jesli zero to pudlo i zaznacz miss czyli 2
-    //jesli trafiłeś to zaznacz trafienie, sprawdż czy wszystkie pola są zerami dookoła, jeśli nie to niezatopiony i możesz strzelać w losowym kierunku dalej
-    //sprawdz czy kierunek wybrany idzie w ściane
-    //powtarzaj az do zatopienia
-    //przy pudle następny gracz, przy trafieniu kontynuacja
-    //18 punktów = 18 trafień to koniec meczu i wygrana pod warunkiem, że tyle statków istnieje
-
-
     public class ShootingGenerator
     {
         public static ICell Cell;
@@ -32,10 +25,6 @@ namespace Battleships.Logic.BoardLogic
             if (cell == null)
                 cell = FirstShoot();
 
-            //0 - empty,
-            //1 - ship,
-            //2 - miss or space around ship,
-            //3 - already hit
             var type = ShotType(cell, player);
 
             return type switch
@@ -47,32 +36,44 @@ namespace Battleships.Logic.BoardLogic
             };
         }
 
+        private void MarkAroundHit(Cell cell, Player player)
+        {
+            Cell = new CellLogic(player);
+
+            foreach (var item in Extensions.IterateAroundCell(cell))
+                if (player.GameBoard[item.X, item.Y] == 0)
+                    Cell.PointTypeDraw(DrawType.Miss, item);
+        }
+
+        private bool ShipSinked(Cell cell, Player player)
+            => Cell.PointTypeDraw(DrawType.Hit, cell).CheckForFreeSpace(player);
+
         private Cell Hit(Cell cell, Player player)
         {
+            IEnumerable<Cell> shipCells = new List<Cell>();
+
             player.HitPoints++;
             Console.WriteLine($"{player.Name} GOT HIT!");
 
-            //trzeba dodac, zeby narysowalo wszedzie 2 dookola jak zatopiony
-            //jesli dookola sa 0 to true zwraca czyli byl pojedynczy statek, czyli zatopienie
-            if (Cell.PointTypeDraw(DrawType.Hit, cell).CheckForFreeSpace(player))
+            if (ShipSinked(cell, player))
             {
-                MarkSpaceAroundSinkedShip(cell, player);
                 Console.WriteLine($"{player.Name} GOT SINKING SHIP!");
+                MarkAroundHit(cell, player);
                 ShotLogic(player);
             }
             else
-            {
-                var tmp = Direction(cell);
-                ShotLogic(player, tmp);
-            }
+                TargetCheck(player, cell);
+        
+            return cell;
         }
 
-        private bool MarkSpaceAroundSinkedShip(Cell cell, Player player)
+        private void TargetCheck(Player player, Cell cell = null)
         {
-            if (!Cell.PointTypeDraw(DrawType.Miss, cell).CheckForFreeSpace(player))
-            {
-
-            }
+            var tmp = Direction(cell);
+            if (!Extensions.TargetOutOfMap(tmp))
+                ShotLogic(player, tmp);
+            else
+                TargetCheck(player);
         }
 
         private Cell Direction(Cell cell)
@@ -88,16 +89,6 @@ namespace Battleships.Logic.BoardLogic
                 _ => throw new NotImplementedException()
             };
         }
-
-
-
-
-
-
-
-
-
-
 
         private Cell Miss(Cell cell)
             => Cell.PointTypeDraw(DrawType.Miss, cell);

@@ -1,5 +1,4 @@
-﻿using Battleships.Core.Interfaces;
-using Battleships.Core.Models;
+﻿using Battleships.Core.Models;
 using Battleships.Logic.BoardLogic;
 using System;
 using System.Collections.Generic;
@@ -21,37 +20,29 @@ namespace Battleships.Logic
             player2
         };
 
-        public async Task Run()
+        public void Run()
         {
-            // Generate Player Ships
             foreach (var player in Players)
                 ShipGenerator.DrawShipsAsync(player);
 
-            Console.WriteLine("\n\n");
-
-            // Draw each players board
-            foreach (var player in Players)
-            {
-                if (player == player1)
-                {
-                    Console.WriteLine(player.Name);
-                    Board.DrawBoard(player);
-                    Console.WriteLine("\n\n\n");
-                }
-                else
-                {
-                    Console.WriteLine(player.Name);
-                    Board.DrawBoard(player);
-                }
-            }
-
-            // Shooting until someone dies
             while (true)
                 foreach (var player in Players)
                 {
+                    DrawBoard();
                     ShootingGenerator.ShotEnemy(player);
-                    await Task.Delay(200);
+                    Console.Clear();
+                    Task.Delay(1000);
                 }
+        }
+
+        private void DrawBoard()
+        {
+            foreach (var player in Players)
+            {
+                Console.WriteLine(player.Name);
+                Board.DrawBoard(player);
+                Console.WriteLine("\n\n\n");
+            }
         }
     }
 }

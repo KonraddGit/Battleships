@@ -1,29 +1,52 @@
-﻿using Battleships.Core.Models;
+﻿using Battleships.Core.Interfaces;
+using Battleships.Core.Models;
+using Battleships.Logic.BoardLogic;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Battleships.Logic.Helpers
 {
     public static class Extensions
     {
         private static readonly Random rnd = new();
-        
+
         public static int RandomDirection()
             => rnd.Next(0, 3);
 
+        public static bool TargetOutOfMap(Cell cell)
+        {
+            if (cell.X < 0
+                || cell.X > 10
+                || cell.Y < 0
+                || cell.Y > 10)
+                return true;
+
+            return false;
+        }
+
+        public static List<Cell> IterateAroundCell(Cell cell)
+            => new List<Cell>()
+            {
+                new Cell { X = cell.X + 1, Y = cell.Y + 1},
+                new Cell { X = cell.X, Y = cell.Y + 1},
+                new Cell { X = cell.X, Y = cell.Y - 1},
+                new Cell { X = cell.X + 1, Y = cell.Y},
+                new Cell { X = cell.X - 1, Y = cell.Y},
+                new Cell { X = cell.X + 1, Y = cell.Y - 1},
+                new Cell { X = cell.X - 1, Y = cell.Y - 1},
+                new Cell { X = cell.X - 1, Y = cell.Y + 1}
+            };
+
         public static bool CheckForFreeSpace(this Cell cell, Player player)
         {
-            if (player.GameBoard[cell.X + 1, cell.Y + 1] == 0
-                && (player.GameBoard[cell.X, cell.Y + 1] == 0)
-                && (player.GameBoard[cell.X, cell.Y - 1] == 0)
-                && (player.GameBoard[cell.X + 1, cell.Y] == 0)
-                && (player.GameBoard[cell.X - 1, cell.Y] == 0)
-                && (player.GameBoard[cell.X + 1, cell.Y - 1] == 0)
-                && (player.GameBoard[cell.X - 1, cell.Y - 1] == 0)
-                && (player.GameBoard[cell.X - 1, cell.Y + 1] == 0)
-                )
-                return true;
-            else
-                return false;
+            foreach (var item in IterateAroundCell(cell))
+                if (player.GameBoard[item.X, item.Y] == 0)
+                    continue;
+                else
+                    return false;
+
+            return true;
         }
 
         public static bool CheckForFreeSpace(Cell cell, Cell newPosition)
