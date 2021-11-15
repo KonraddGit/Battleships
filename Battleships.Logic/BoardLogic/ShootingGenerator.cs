@@ -52,7 +52,7 @@ namespace Battleships.Logic.BoardLogic
         {
             IEnumerable<Cell> shipCells = new List<Cell>();
 
-            player.HitPoints++;
+            player.HitPoints--;
             Console.WriteLine($"{player.Name} GOT HIT!");
 
             if (ShipSinked(cell, player))

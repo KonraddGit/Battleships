@@ -28,14 +28,14 @@ namespace Battleships.Logic.Helpers
         public static List<Cell> IterateAroundCell(Cell cell)
             => new()
             {
-                new Cell { X = cell.X + 1, Y = cell.Y + 1},
-                new Cell { X = cell.X, Y = cell.Y + 1},
-                new Cell { X = cell.X, Y = cell.Y - 1},
-                new Cell { X = cell.X + 1, Y = cell.Y},
-                new Cell { X = cell.X - 1, Y = cell.Y},
-                new Cell { X = cell.X + 1, Y = cell.Y - 1},
-                new Cell { X = cell.X - 1, Y = cell.Y - 1},
-                new Cell { X = cell.X - 1, Y = cell.Y + 1}
+                new Cell { X = cell.X + 1, Y = cell.Y + 1 },
+                new Cell { X = cell.X, Y = cell.Y + 1 },
+                new Cell { X = cell.X, Y = cell.Y - 1 },
+                new Cell { X = cell.X + 1, Y = cell.Y },
+                new Cell { X = cell.X - 1, Y = cell.Y },
+                new Cell { X = cell.X + 1, Y = cell.Y - 1 },
+                new Cell { X = cell.X - 1, Y = cell.Y - 1 },
+                new Cell { X = cell.X - 1, Y = cell.Y + 1 }
             };
 
         public static bool CheckForFreeSpace(this Cell cell, Player player)
@@ -46,14 +46,15 @@ namespace Battleships.Logic.Helpers
                     if (player.GameBoard[item.X, item.Y] == 0)
                         continue;
                     else
+                        if (TargetOutOfMap(cell) == true)
                         return false;
+
+                return true;
             }
             catch (Exception)
             {
                 throw new Exception("Bug");
             }
-
-            return true;
         }
 
         public static bool CheckForFreeSpace(Cell cell, Cell newPosition)
