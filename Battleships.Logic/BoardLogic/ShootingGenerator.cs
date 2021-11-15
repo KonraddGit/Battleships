@@ -32,14 +32,12 @@ namespace Battleships.Logic.BoardLogic
                 0 => Miss(cell),
                 1 => Hit(cell, player),
                 2 or 3 => ShotLogic(player),
-                _ => throw new NotImplementedException(""),
+                _ => throw new NotImplementedException("There is no number like this implemented yet"),
             };
         }
 
         private void MarkAroundHit(Cell cell, Player player)
         {
-            //Cell = new CellLogic(player);
-
             foreach (var item in Extensions.IterateAroundCell(cell))
                 if (player.GameBoard[item.X, item.Y] == 0)
                     Cell.PointTypeDraw(DrawType.Miss, item);

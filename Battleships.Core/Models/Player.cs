@@ -14,7 +14,7 @@ namespace Battleships.Core.Models
             get { return PlacedShips.Count; }
             set
             {
-                if (value < 0 || value > 18)
+                if (value > 18)
                     throw new ArgumentOutOfRangeException(
                         $"{nameof(value)} badly generated ships");
             }
