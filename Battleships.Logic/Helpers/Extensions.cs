@@ -1,9 +1,6 @@
-﻿using Battleships.Core.Interfaces;
-using Battleships.Core.Models;
-using Battleships.Logic.BoardLogic;
+﻿using Battleships.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Battleships.Logic.Helpers
 {

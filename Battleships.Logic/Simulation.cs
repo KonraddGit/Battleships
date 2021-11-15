@@ -23,9 +23,10 @@ namespace Battleships.Logic
         public void Run()
         {
             foreach (var player in Players)
+            {
                 ShipGenerator.DrawShipsAsync(player);
-
-            Console.WriteLine($"{player1.Name} Hitpoints: {player1.HitPoints}, {player2.Name} Hitpoints: {player2.HitPoints}");
+                player.HitPoints = player.PlacedShips.Count;
+            }
 
             while (true)
             {
@@ -34,9 +35,11 @@ namespace Battleships.Logic
                     Console.SetCursorPosition(0, 0);
                     Console.Clear();
                     DrawBoard();
-                    ShootingGenerator.ShotEnemy(player);
+
                     if (FinishGame(player))
                         return;
+
+                    ShootingGenerator.ShotEnemy(player);
                 }
             }
         }
@@ -45,7 +48,7 @@ namespace Battleships.Logic
         {
             if (player.HitPoints == 0)
             {
-                Console.WriteLine($"{player.Name} WON!");
+                Console.WriteLine($"{player.Name} LOST!");
                 return true;
             }
 

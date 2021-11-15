@@ -39,16 +39,21 @@ namespace Battleships.Logic.BoardLogic
         private void MarkAroundHit(Cell cell, Player player)
         {
             foreach (var item in Extensions.IterateAroundCell(cell))
+            {
+                if (!Extensions.TargetOutOfMap(item))
+                    continue;
+
                 if (player.GameBoard[item.X, item.Y] == 0)
                     Cell.PointTypeDraw(DrawType.Miss, item);
+            }
         }
-
-        private bool ShipSinked(Cell cell, Player player)
-            => Cell.PointTypeDraw(DrawType.Hit, cell).CheckForFreeSpace(player);
 
         private Cell Hit(Cell cell, Player player)
         {
             IEnumerable<Cell> shipCells = new List<Cell>();
+
+            if (FinishGame(player))
+                return cell;
 
             player.HitPoints--;
             Console.WriteLine($"{player.Name} GOT HIT!");
@@ -61,7 +66,7 @@ namespace Battleships.Logic.BoardLogic
             }
             else
                 TargetCheck(player, cell);
-        
+
             return cell;
         }
 
@@ -87,6 +92,20 @@ namespace Battleships.Logic.BoardLogic
                 _ => throw new NotImplementedException()
             };
         }
+
+        private bool FinishGame(Player player)
+        {
+            if (player.HitPoints < 1)
+            {
+                Console.WriteLine($"{player.Name} LOST!");
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool ShipSinked(Cell cell, Player player)
+            => Cell.PointTypeDraw(DrawType.Hit, cell).CheckForFreeSpace(player);
 
         private Cell Miss(Cell cell)
             => Cell.PointTypeDraw(DrawType.Miss, cell);
