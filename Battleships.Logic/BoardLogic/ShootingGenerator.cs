@@ -38,7 +38,7 @@ namespace Battleships.Logic.BoardLogic
 
         private void MarkAroundHit(Cell cell, Player player)
         {
-            Cell = new CellLogic(player);
+            //Cell = new CellLogic(player);
 
             foreach (var item in Extensions.IterateAroundCell(cell))
                 if (player.GameBoard[item.X, item.Y] == 0)
@@ -73,7 +73,7 @@ namespace Battleships.Logic.BoardLogic
             if (!Extensions.TargetOutOfMap(tmp))
                 ShotLogic(player, tmp);
             else
-                TargetCheck(player);
+                TargetCheck(player, cell);
         }
 
         private Cell Direction(Cell cell)

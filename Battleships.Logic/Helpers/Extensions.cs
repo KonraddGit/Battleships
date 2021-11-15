@@ -17,9 +17,9 @@ namespace Battleships.Logic.Helpers
         public static bool TargetOutOfMap(Cell cell)
         {
             if (cell.X < 0
-                || cell.X > 10
+                || cell.X > 9
                 || cell.Y < 0
-                || cell.Y > 10)
+                || cell.Y > 9)
                 return true;
 
             return false;
@@ -43,17 +43,20 @@ namespace Battleships.Logic.Helpers
             try
             {
                 foreach (var item in IterateAroundCell(cell))
+                {
+                    if (TargetOutOfMap(item))
+                        continue;
+
                     if (player.GameBoard[item.X, item.Y] == 0)
                         continue;
                     else
-                        if (TargetOutOfMap(cell) == true)
                         return false;
-
+                }
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Bug");
+                throw new Exception($"Free space around cell bug need to get resolved {ex}");
             }
         }
 

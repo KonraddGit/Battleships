@@ -25,19 +25,31 @@ namespace Battleships.Logic
             foreach (var player in Players)
                 ShipGenerator.DrawShipsAsync(player);
 
-            do
-            {
+            Console.WriteLine($"{player1.Name} Hitpoints: {player1.HitPoints}, {player2.Name} Hitpoints: {player2.HitPoints}");
 
+            while (true)
+            {
                 foreach (var player in Players)
                 {
-                    DrawBoard();
-                    ShootingGenerator.ShotEnemy(player);
                     Console.SetCursorPosition(0, 0);
                     Console.Clear();
+                    DrawBoard();
+                    ShootingGenerator.ShotEnemy(player);
+                    if (FinishGame(player))
+                        return;
                 }
+            }
+        }
 
-            } while (player1.HitPoints == 0
-                    || player2.HitPoints == 0);
+        private bool FinishGame(Player player)
+        {
+            if (player.HitPoints == 0)
+            {
+                Console.WriteLine($"{player.Name} WON!");
+                return true;
+            }
+
+            return false;
         }
 
         private void DrawBoard()

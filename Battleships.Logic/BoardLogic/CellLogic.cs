@@ -21,8 +21,8 @@ namespace Battleships.Logic.BoardLogic
         public Cell FirstPosition()
             => new Cell
             {
-                X = rnd.Next(0, 10),
-                Y = rnd.Next(0, 10),
+                X = rnd.Next(0, 9),
+                Y = rnd.Next(0, 9),
             };
 
         public Cell PointTypeDraw(DrawType draw, Cell cell)
